@@ -20,15 +20,15 @@ class Pessoa{
         this.idade = idade
     }
 
-    public comer(comida: string){
+    public comer = (comida: string) => {
         return `O ${this.nome} comeu ${comida}`
     }
 
-    public fezAniversario(){
+    public fezAniversario = () => {
         return `O ${this.nome} fez ${++this.idade} anos`
     }
 
-    public getNomeCompleto(){
+    public getNomeCompleto = () => {
         return this.nome + this.sobrenome
     }
 
@@ -43,7 +43,7 @@ class Cliente extends Pessoa{
         this.plano = plano
     }
 
-    public tipoPlano() {
+    public tipoPlano = () => {
         return `${this.nome} tem acesso a conteudos do plano ${this.plano}`
     }
 
