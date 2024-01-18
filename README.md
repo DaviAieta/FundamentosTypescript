@@ -1,1 +1,1 @@
-Estudos em typescripts
+Estudos em typescript
