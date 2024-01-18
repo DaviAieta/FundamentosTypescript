@@ -1,7 +1,18 @@
+/*
+    public -> Pode ser acessado pela mesma classe,
+    classes filhas e outras classes.
+
+    protected -> Pode ser acessado pela mesma classe e
+    classes filhas, nao pode ser acessado por outras classes
+
+    private -> Pode ser acessado somente pela mesma classe
+
+*/
+
 class Pessoa{
-    nome: string
-    sobrenome: string
-    idade: number
+   public nome: string
+   public sobrenome: string
+   public idade: number
 
     constructor(nome:string, sobrenome:string , idade:number){
         this.nome = nome
@@ -9,20 +20,34 @@ class Pessoa{
         this.idade = idade
     }
 
-    comer(comida: string){
+    public comer(comida: string){
         return `O ${this.nome} comeu ${comida}`
     }
 
-    fezAniversario(){
+    public fezAniversario(){
         return `O ${this.nome} fez ${++this.idade} anos`
     }
 
-    nomeCompleto(){
+    public getNomeCompleto(){
         return this.nome + this.sobrenome
     }
 
 }
 
-const pessoa = new Pessoa('Davi', 'Carvalho', 14)
-console.log(pessoa.comer('arroz'))
-console.log(pessoa.fezAniversario())
+// Heranca:
+class Cliente extends Pessoa{
+    plano: string = ''
+
+    constructor(nome:string, sobrenome:string , idade:number, plano:string){
+        super(nome, sobrenome, idade)
+        this.plano = plano
+    }
+
+    public tipoPlano() {
+        return `${this.nome} tem acesso a conteudos do plano ${this.plano}`
+    }
+
+}
+
+const cliente = new Cliente('Davi', 'Carvalho', 14, 'Premium')
+console.log(cliente.tipoPlano())
