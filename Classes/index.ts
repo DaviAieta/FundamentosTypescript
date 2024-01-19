@@ -36,7 +36,8 @@ class Pessoa{
 
 // Heranca:
 class Cliente extends Pessoa{
-    plano: string = ''
+    public plano: string
+    private _profissao: string = 'Engenheiro'
 
     constructor(nome:string, sobrenome:string , idade:number, plano:string){
         super(nome, sobrenome, idade)
@@ -47,7 +48,18 @@ class Cliente extends Pessoa{
         return `${this.nome} tem acesso a conteudos do plano ${this.plano}`
     }
 
+    get profissao() {
+        return this._profissao
+    }
+
+    set profissao(profissao: string){
+        this._profissao = profissao 
+    }
+
 }
 
 const cliente = new Cliente('Davi', 'Carvalho', 14, 'Premium')
 console.log(cliente.tipoPlano())
+
+cliente.profissao = 'Programador'
+console.log('Profissao: ' + cliente.profissao)
